@@ -30,6 +30,8 @@ public class CharacterController : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
 
         sprintTimer = maxSprint;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
@@ -72,6 +74,9 @@ public class CharacterController : MonoBehaviour
                 sprintTimer = sprintTimer + Time.deltaTime;
             }
         }
+
+        camRotation = Mathf.Clamp(camRotation, -40.0f, 40.0f);
     }
+
 
 }
